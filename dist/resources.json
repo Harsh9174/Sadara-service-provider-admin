@@ -1,0 +1,138 @@
+{
+    "resources": [
+        {
+            "name": "util/formatter.js"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "controller/Services.controller.js"
+        },
+        {
+            "name": "controller/ServiceProviderDetail.controller.js"
+        },
+        {
+            "name": "controller/ServiceProvider.controller.js"
+        },
+        {
+            "name": "controller/Home.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "serviceBinding.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "util/formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Services-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ServiceProviderDetail-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ServiceProvider-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Home-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/App-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "serviceBinding-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/Services.view.xml"
+        },
+        {
+            "name": "view/ServiceProviderDetail.view.xml"
+        },
+        {
+            "name": "view/ServiceProvider.view.xml"
+        },
+        {
+            "name": "view/Home.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "fragments/UpdateService.fragment.xml"
+        },
+        {
+            "name": "fragments/UpdateProviderDetails.fragment.xml"
+        },
+        {
+            "name": "fragments/UpdateProvider.fragment.xml"
+        },
+        {
+            "name": "fragments/ImportExcelServiceProvider.fragment.xml"
+        },
+        {
+            "name": "fragments/AddProviderDetails.fragment.xml"
+        },
+        {
+            "name": "fragments/AddNewService.fragment.xml"
+        },
+        {
+            "name": "fragments/AddNewProvider.fragment.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "Images/SadaraFurnace-min.jpg"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

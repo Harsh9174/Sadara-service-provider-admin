@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog showHeader="false">
+		<content>
+			<f:Form id="addnewservice" editable="true">
+				<f:title>
+					<core:Title text="Add Service"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Service Name">
+								<f:fields>
+									<Input/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Description">
+								<f:fields>
+									<TextArea width="100%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Category ID">
+								<f:fields>
+									<ComboBox items="{SproviderModel>/SERVICECATEGORY}">
+										<core:Item key="{SproviderModel>SERVICECATEGORY_ID}" text="{SproviderModel>SERVICECATEGORY_ID} {SproviderModel>SERVICECATEGORY_NAME}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+				
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button id="cannewservice" text="Cancel" press="onCancelNewService"/>
+				<Button id="savenewservice" text="Save" press="onSave"/>
+			</OverflowToolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog showHeader="false">
+		<content>
+			<f:Form id="ServiceProviderDetailForm" editable="true">
+				<f:title>
+					<core:Title text="Add Provider Details"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Service Provider">
+								<f:fields>
+									<ComboBox items="{
+            path: 'SproviderModel>/SERVICEPROVIDERMASTER',
+            filters: [
+                {path: 'DELETIONFLAG', operator: 'EQ', value1: ''}
+            ]
+        }" id="addserviceprovidermaster">
+										<core:Item key="{SproviderModel>SERVICEPROVIDER_ID}" text="{SproviderModel>SERVICEPROVIDER_NAME}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Service">
+								<f:fields>
+									<ComboBox items="{
+            path: 'SproviderModel>/SERVICESMASTER',
+            filters: [
+                {path: 'DELETIONFLAG', operator: 'EQ', value1: ''}
+            ]}"  id="addservicesmaster" >
+										<core:Item key="{SproviderModel>SERVICE_ID}" text="{SproviderModel>SERVICE_NAME}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Remarks">
+								<f:fields>
+									<TextArea maxLength="100" width="100%"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button id="cancelDetails" text="Cancel" press="onCancel"/>
+				<Button id="SaveDetails" text="Save" press="onSave"/>
+			</OverflowToolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>

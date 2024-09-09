@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+	<Dialog showHeader="false">
+		<content>
+			<Table id="idProductsTable" inset="false" items="{localModel>/items}">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<Title text="IMPORT EXCEL"/>
+							<ToolbarSpacer/>
+							<Button  text="Download Template" press="onDownloadTemplate"/>
+							<u:FileUploader id="fileUploader" change="handleFileChange"/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="Provider Name"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="Sadara Vendor Id"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="Created On"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true">
+						<Text text="Created By"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{localModel>Provider Name}"/>
+							<Text text="{localModel>SADARAVENDOR_ID}"/>
+							<Text   text="{localModel>createdBy}"/>
+							<Text text="{localModel>createdOn}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar class="myoverflowtoolbar">
+				<ToolbarSpacer/>
+				<Button id="cancelimport" text="Cancel" press="onCancelImport"/>
+				<Button id="saveimport" text="Save" press="onSaveImport"/>
+			</OverflowToolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>

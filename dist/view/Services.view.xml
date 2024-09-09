@@ -1,0 +1,126 @@
+<mvc:View controllerName="com.ServicesProviders.ServicesProviders.controller.Services" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap"
+	xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:t="sap.ui.table" xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:m="sap.m" height="100%">
+	<m:Page showHeader="false">
+		<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false">
+			<headerTitle>
+				<ObjectPageDynamicHeaderTitle>
+					<expandedHeading>
+						<m:Title text="Service Master" wrapping="true"/>
+					</expandedHeading>
+					<snappedHeading>
+						<m:FlexBox fitContainer="true" alignItems="Center">
+							<m:Title text="Services" wrapping="true"/>
+						</m:FlexBox>
+					</snappedHeading>
+					<actions>
+						<m:Button type="Emphasized" text="Provider Details" press="onServiceProviderDetailPress"/>
+						<m:Button type="Emphasized" text="Service Provider" press="onServiceProviderPress"/>
+						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column"/>
+					</actions>
+				</ObjectPageDynamicHeaderTitle>
+			</headerTitle>
+			<headerContent>
+				<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="onGoPress" filterChange=".onFilterChange"
+					afterVariantLoad=".onAfterVariantLoad">
+					<fb:filterGroupItems>
+						<fb:FilterGroupItem name="Name" label="Services" groupName="Group1" visibleInFilterBar="true">
+							<fb:control>
+								<m:SearchField id="servicesnameinput" search="onSearch" width="17.5rem"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem name="Deleyed Items" label="Deletion Flag" groupName="Group1" visibleInFilterBar="true">
+							<fb:control>
+								<m:ComboBox id="mydeleteditems">
+									<core:Item key="X" text="Deleted"/>
+									<core:Item key="" text="Non-Deleted"/>
+								</m:ComboBox>
+							</fb:control>
+						</fb:FilterGroupItem>
+					</fb:filterGroupItems>
+				</fb:FilterBar>
+			</headerContent>
+			<sections>
+				<ObjectPageSection>
+					<subSections>
+						<ObjectPageSubSection>
+							<blocks>
+								<t:Table threshold="20" selectionBehavior="RowOnly" id="servicesTable" fixedColumnCount="2" visibleRowCount="11" enableCellFilter="true"
+									rows="{SproviderModel>/CV_SERVICES_MASTER}" selectionMode="Single" ariaLabelledBy="title">
+									<t:extension>
+										<m:OverflowToolbar style="Clear">
+											<m:Button type="Emphasized" text="Add" tooltip="Add New Service" press="onAddLine"/>
+											<m:Button type="Emphasized" text="Edit" tooltip="Update" press="onEditPress"/>
+											<m:ToolbarSpacer/>
+											<m:Button text="Export" icon="sap-icon://excel-attachment" type="Emphasized" press="onExport"/>
+										</m:OverflowToolbar>
+									</t:extension>
+									<t:columns>
+										<t:Column width="4rem">
+											<m:Label text="ID"/>
+											<t:template>
+												<m:Text text="{SproviderModel>SERVICE_ID}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="10rem">
+											<m:Label text="Service Name"/>
+											<t:template>
+												<m:Text text="{SproviderModel>SERVICE_NAME}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="8rem">
+											<m:Label text="Category ID"/>
+											<t:template>
+												<m:Text text="{SproviderModel>SERVICECATEGORY_NAME}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="12rem">
+											<m:Label text="Description"/>
+											<t:template>
+												<m:ExpandableText overflowMode="Popover" class="sapUiTinyMarginBottom sapUiTinyMarginTop" maxCharacters="50"
+													text="{SproviderModel>SERVICE_DESCRIPTION}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="10rem">
+											<m:Label text="Created On"/>
+											<t:template>
+												<m:ObjectIdentifier title="{path: 'SproviderModel>CREATIONDATETIME', formatter: '.formatter.formatDate'}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="12rem">
+											<m:Label text="Created By"/>
+											<t:template>
+												<m:Text text="{SproviderModel>CREATEDBY}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="10rem">
+											<m:Label text="Updated On"/>
+											<t:template>
+												<m:ObjectIdentifier title="{path: 'SproviderModel>UPDATEDATETIME', formatter: '.formatter.formatDate'}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="12rem">
+											<m:Label text="Updated By"/>
+											<t:template>
+												<m:Text text="{SproviderModel>UPDATEDBY}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="11rem">
+											<m:Label text="Deletion Flag"/>
+											<t:template>
+												<m:Text class="deleteditems" text="{path: 'SproviderModel>DELETIONFLAG' , formatter: '.formatter.Delete'}"/>
+											</t:template>
+										</t:Column>
+									</t:columns>
+								</t:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+			</sections>
+		</ObjectPageLayout>
+		<m:footer>
+			<m:OverflowToolbar class="myoverflowtoolbar"></m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

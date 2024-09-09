@@ -1,0 +1,31 @@
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+}
+
+.createdemail {
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.updatedemail {
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.deleteditems {
+    color: red;
+}
+
+.sapMLnk:not(.sapMLnkDsbl) {
+    text-shadow: 0 0 .125rem #fff;
+    color: blue;
+}
+
+html.sap-desktop .sapMLnk:not(.sapMLnkDsbl):hover:not(:active):not(:focus) {
+    color: #0000ff;
+    text-decoration: underline;
+}

@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5"],function(e){"use strict";return e.extend("com.ServicesProviders.ServicesProviders.test.integration.arrangements.Startup",{iStartMyApp:function(e){var t=e||{};t.delay=t.delay||50;this.iStartMyUIComponent({componentConfig:{name:"com.ServicesProviders.ServicesProviders",async:true},hash:t.hash,autoWait:t.autoWait})}})});

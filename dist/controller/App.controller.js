@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(e){"use strict";return e.extend("com.ServicesProviders.ServicesProviders.controller.App",{onInit:function(){}})});

@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog showHeader="false">
+		<content>
+			<f:Form id="ServiceProviderUpdateForm" editable="true">
+				<f:title>
+					<core:Title text="Update Provider Details"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Service Provider">
+								<f:fields>
+									<ComboBox  showSecondaryValues= "true" items="{
+            path: 'SproviderModel>/SERVICEPROVIDERMASTER'}">
+										<core:ListItem key="{SproviderModel>SERVICEPROVIDER_ID}" text="{SproviderModel>SERVICEPROVIDER_NAME}" additionalText="{path:'SproviderModel>DELETIONFLAG', formatter: '.formatter.Delete'}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Service">
+								<f:fields>
+									<ComboBox 	showSecondaryValues= "true" items="{
+            path: 'SproviderModel>/SERVICESMASTER'}">
+										<core:ListItem key="{SproviderModel>SERVICE_ID}" text="{SproviderModel>SERVICE_NAME}" additionalText="{path:'SproviderModel>DELETIONFLAG', formatter: '.formatter.Delete'}"/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Remarks">
+								<f:fields>
+									<TextArea maxLength="100" width="100%"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Deleted">
+								<f:fields>
+									<Switch change="changeStateUpdateDetails" state="false" customTextOn="Yes" customTextOff="No"></Switch>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button id="cancelUpdate" text="Cancel" press="onCancelUpdateDetails"/>
+				<Button id="updateDetails" text="Update" press="onUpdate"/>
+			</OverflowToolbar>
+		</footer>
+	</Dialog>
+</core:FragmentDefinition>
