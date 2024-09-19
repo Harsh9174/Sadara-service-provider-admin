@@ -14,23 +14,16 @@
 						<f:formElements>
 							<f:FormElement label="Service Provider">
 								<f:fields>
-									<ComboBox items="{
-            path: 'SproviderModel>/SERVICEPROVIDERMASTER',
-            filters: [
-                {path: 'DELETIONFLAG', operator: 'EQ', value1: ''}
-            ]
-        }" id="addserviceprovidermaster">
+									<ComboBox items="{ path: 'SproviderModel>/SERVICEPROVIDERMASTER',length:500000, filters: [ {path: 'DELETIONFLAG', operator: 'EQ', value1: ''} ] }"
+										id="addserviceprovidermaster">
 										<core:Item key="{SproviderModel>SERVICEPROVIDER_ID}" text="{SproviderModel>SERVICEPROVIDER_NAME}"/>
 									</ComboBox>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Service">
 								<f:fields>
-									<ComboBox items="{
-            path: 'SproviderModel>/SERVICESMASTER',
-            filters: [
-                {path: 'DELETIONFLAG', operator: 'EQ', value1: ''}
-            ]}"  id="addservicesmaster" >
+									<ComboBox items="{ path: 'SproviderModel>/SERVICESMASTER',length:5000000, filters: [ {path: 'DELETIONFLAG', operator: 'EQ', value1: ''} ]}"
+										id="addservicesmaster">
 										<core:Item key="{SproviderModel>SERVICE_ID}" text="{SproviderModel>SERVICE_NAME}"/>
 									</ComboBox>
 								</f:fields>

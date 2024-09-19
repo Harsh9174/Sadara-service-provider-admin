@@ -140,7 +140,10 @@ sap.ui.define([
 				property: 'SADARAVENDOR_ID',
 				type: EdmType.String
 			});
-
+			aCols.push({
+				property: 'PROVIDER_CATEGORY',
+				type: EdmType.String
+			});
 			aCols.push({
 				property: 'SERVICE_ID',
 				type: EdmType.String

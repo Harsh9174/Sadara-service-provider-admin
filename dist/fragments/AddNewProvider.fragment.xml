@@ -14,12 +14,20 @@
 						<f:formElements>
 							<f:FormElement label="Service Provider">
 								<f:fields>
-										<Input id="newProvider" placeholder="Provider Name"></Input>
+									<Input id="newProvider" placeholder="Provider Name"></Input>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Sadara Vendor Id">
 								<f:fields>
-											<Input id="vendorid" placeholder="Vendor Id"></Input>
+									<Input id="vendorid" placeholder="Vendor Id"></Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Provider Category">
+								<f:fields>
+									<ComboBox showSecondaryValues="true" items="{ path: 'SproviderModel>/SERVICEPROVIDERCATEGORY'}">
+										<core:ListItem key="{SproviderModel>PROVIDER_CATEGORY}" text="{SproviderModel>PROVIDER_CATEGORY}"
+										/>
+									</ComboBox>
 								</f:fields>
 							</f:FormElement>
 						</f:formElements>

@@ -1,14 +1,13 @@
 {
     "resources": [
         {
-            "name": "util/formatter.js"
-        },
-        {
-            "name": "i18n/i18n.properties",
-            "raw": "i18n/i18n.properties"
+            "name": "view/Services.view.xml"
         },
         {
             "name": "manifest.json"
+        },
+        {
+            "name": "util/formatter.js"
         },
         {
             "name": "model/models.js"
@@ -40,10 +39,6 @@
         {
             "name": "Component-preload.js",
             "merged": true
-        },
-        {
-            "name": "Component-dbg.js",
-            "isDebug": true
         },
         {
             "name": "util/formatter-dbg.js",
@@ -78,6 +73,10 @@
             "isDebug": true
         },
         {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
             "name": "../../../sap-ui-version.json"
         },
         {
@@ -87,7 +86,8 @@
             "name": "di.code-validation.core_issues.json"
         },
         {
-            "name": "view/Services.view.xml"
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
         },
         {
             "name": "view/ServiceProviderDetail.view.xml"
@@ -112,9 +112,6 @@
         },
         {
             "name": "fragments/UpdateProvider.fragment.xml"
-        },
-        {
-            "name": "fragments/ImportExcelServiceProvider.fragment.xml"
         },
         {
             "name": "fragments/AddProviderDetails.fragment.xml"

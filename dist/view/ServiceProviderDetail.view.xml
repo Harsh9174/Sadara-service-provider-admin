@@ -14,9 +14,9 @@
 						</m:FlexBox>
 					</snappedHeading>
 					<actions>
-						<m:Button  type="Emphasized"  text="Service Provider" press="onServiceProviderPress"/>
-						<m:Button   type="Emphasized" text="Services" press="onServicePress"/>
-							<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column"/>
+						<m:Button type="Emphasized" text="Service Provider" press="onServiceProviderPress"/>
+						<m:Button type="Emphasized" text="Services" press="onServicePress"/>
+						<m:Button type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column"/>
 					</actions>
 				</ObjectPageDynamicHeaderTitle>
 			</headerTitle>
@@ -46,7 +46,7 @@
 				</fb:FilterBar>
 			</headerContent>
 			<sections>
-				<ObjectPageSection>
+				<ObjectPageSection showTitle="false">
 					<subSections>
 						<ObjectPageSubSection>
 							<blocks>
@@ -57,7 +57,7 @@
 											<m:Button type="Emphasized" text="Add" tooltip="Add New Details" press="AddProvider"/>
 											<m:Button type="Emphasized" text="Edit" tooltip="Update" press="onEditPress"/>
 											<m:ToolbarSpacer/>
-											<m:Button text="Export"  icon="sap-icon://excel-attachment" type="Emphasized" press="onExport"/>
+											<m:Button text="Export" icon="sap-icon://excel-attachment" type="Emphasized" press="onExport"/>
 										</m:OverflowToolbar>
 									</t:extension>
 									<t:columns>
@@ -80,16 +80,16 @@
 													text="{SproviderModel>SERVICE_DESCRIPTION}"/>
 											</t:template>
 										</t:Column>
-										<t:Column width="8rem">
-											<m:Label text="Category Name"/>
+										<t:Column width="12rem">
+											<m:Label text="Proponent Organization"/>
 											<t:template>
 												<m:Text text="{SproviderModel>SERVICECATEGORY_NAME}"/>
 											</t:template>
 										</t:Column>
-										<t:Column width="8rem">
+										<t:Column width="11rem">
 											<m:Label text="Remarks"/>
 											<t:template>
-												<m:Text text="{SproviderModel>REMARKS}"/>
+												<m:ExpandableText overflowMode="Popover" class="sapUiTinyMarginBottom sapUiTinyMarginTop" maxCharacters="20" text="{SproviderModel>REMARKS}"/>
 											</t:template>
 										</t:Column>
 										<t:Column width="9rem">
@@ -99,7 +99,13 @@
 											</t:template>
 										</t:Column>
 										<t:Column width="12rem">
-											<m:Label text="Service Provider Created By"/>
+											<m:Label text="Provider Category"/>
+											<t:template>
+												<m:ExpandableText overflowMode="Popover" class="sapUiTinyMarginBottom sapUiTinyMarginTop" maxCharacters="20" text="{path:'SproviderModel>PROVIDER_CATEGORY'}"/>
+											</t:template>
+										</t:Column>
+										<t:Column width="12rem">
+											<m:Label text="Provider Created By"/>
 											<t:template>
 												<m:Text text="{SproviderModel>SERVICEPROVIDER_CREATEDBY}"/>
 											</t:template>
@@ -152,20 +158,16 @@
 												<m:Text class="deleteditems" text="{path:'SproviderModel>DELETIONFLAG', formatter: '.formatter.Delete'}"/>
 											</t:template>
 										</t:Column>
+										
 									</t:columns>
 								</t:Table>
 							</blocks>
 						</ObjectPageSubSection>
 					</subSections>
 				</ObjectPageSection>
+			
 			</sections>
 		</ObjectPageLayout>
-		<m:footer>
-			<m:OverflowToolbar class="myoverflowtoolbar">
-				<m:ToolbarSpacer/>
-				<m:Button id="saveButton" type="Accept" text="Save" press="onSave" visible="false"/>
-				<m:Button type="Reject" id="discarditems" text="Discard" press="onRemoveLastAddedItem" visible="false"/>
-			</m:OverflowToolbar>
-		</m:footer>
+	
 	</m:Page>
 </mvc:View>

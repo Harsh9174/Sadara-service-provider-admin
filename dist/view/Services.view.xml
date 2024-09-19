@@ -41,7 +41,7 @@
 				</fb:FilterBar>
 			</headerContent>
 			<sections>
-				<ObjectPageSection>
+				<ObjectPageSection showTitle="false">
 					<subSections>
 						<ObjectPageSubSection>
 							<blocks>
@@ -68,8 +68,8 @@
 												<m:Text text="{SproviderModel>SERVICE_NAME}"/>
 											</t:template>
 										</t:Column>
-										<t:Column width="8rem">
-											<m:Label text="Category ID"/>
+										<t:Column width="12rem">
+											<m:Label text="Proponent Organization"/>
 											<t:template>
 												<m:Text text="{SproviderModel>SERVICECATEGORY_NAME}"/>
 											</t:template>
