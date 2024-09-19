@@ -15,7 +15,7 @@
 							<f:FormElement label="Service Provider">
 								<f:fields>
 									<ComboBox  showSecondaryValues= "true" items="{
-            path: 'SproviderModel>/SERVICEPROVIDERMASTER'}">
+            path: 'SproviderModel>/SERVICEPROVIDERMASTER',length:5000000}">
 										<core:ListItem key="{SproviderModel>SERVICEPROVIDER_ID}" text="{SproviderModel>SERVICEPROVIDER_NAME}" additionalText="{path:'SproviderModel>DELETIONFLAG', formatter: '.formatter.Delete'}"/>
 									</ComboBox>
 								</f:fields>
@@ -23,7 +23,7 @@
 							<f:FormElement label="Service">
 								<f:fields>
 									<ComboBox 	showSecondaryValues= "true" items="{
-            path: 'SproviderModel>/SERVICESMASTER'}">
+            path: 'SproviderModel>/SERVICESMASTER',length:5000000}">
 										<core:ListItem key="{SproviderModel>SERVICE_ID}" text="{SproviderModel>SERVICE_NAME}" additionalText="{path:'SproviderModel>DELETIONFLAG', formatter: '.formatter.Delete'}"/>
 									</ComboBox>
 								</f:fields>

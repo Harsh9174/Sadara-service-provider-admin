@@ -20,7 +20,8 @@ sap.ui.define([
 			// 	this.XLSX = XLSX;
 			// }.bind(this)).catch(function (error) {
 			// 	console.error("Failed to load XLSX library:", error);
-			// });
+		
+
 		},
 		handleClose: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
@@ -36,9 +37,9 @@ sap.ui.define([
 		},
 
 		onSearch: function () {
-		this.onGoPress();
+			this.onGoPress();
 		},
-		
+
 		_onRouteMatched: function (oEvent) {
 			this.getView().byId("productsTable").getBinding("rows").refresh();
 		},
@@ -53,7 +54,7 @@ sap.ui.define([
 			if (selectedItem) {
 				deletionFlagInputText = selectedItem.getText() || "";
 			}
-			
+
 			var filters = [];
 			// Create filter for SERVICEPROVIDER_NAME if the input is provided
 			if (serviceProviderNameInput.length > 0) {
@@ -61,7 +62,7 @@ sap.ui.define([
 					.byId("articleMultiInput1").getValue() + "')");
 				filters.push(filter1);
 			}
-			
+
 			// Create filter for DELETIONFLAG if the input is provided
 			if (deletionFlagInputText == "Deleted") {
 				var filter2 = new sap.ui.model.Filter("DELETIONFLAG", sap.ui.model.FilterOperator.Contains, deletionFlagInput);
@@ -85,7 +86,7 @@ sap.ui.define([
 		},
 
 		createColumnConfig: function () {
-			
+
 			var aCols = [];
 
 			aCols.push({
@@ -105,6 +106,10 @@ sap.ui.define([
 				property: 'SADARAVENDOR_ID',
 				type: EdmType.String
 			});
+				aCols.push({
+				property: 'PROVIDER_CATEGORY',
+				type: EdmType.String
+			});
 
 			aCols.push({
 				property: 'CREATIONDATETIME',
@@ -120,7 +125,7 @@ sap.ui.define([
 				property: 'UPDATEDATETIME',
 				type: EdmType.Date,
 			});
-			
+
 			aCols.push({
 				property: 'UPDATEDBY',
 				type: EdmType.String
@@ -132,7 +137,7 @@ sap.ui.define([
 			});
 
 			return aCols;
-			
+
 		},
 
 		onExport: function () {
@@ -188,7 +193,8 @@ sap.ui.define([
 
 				this.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[0].getFields()[0].setValue(this.selectedItem.SERVICEPROVIDER_NAME)
 				this.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[1].getFields()[0].setValue(this.selectedItem.SADARAVENDOR_ID)
-				this.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].setState(Deletion)
+				this.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].setValue(this.selectedItem.PROVIDER_CATEGORY)                   
+				this.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[3].getFields()[0].setState(Deletion)
 				this.UpdateProvider.open();
 			}
 		},
@@ -308,7 +314,8 @@ sap.ui.define([
 									"CREATEDBY": sap.ushell.Container.getService("UserInfo").getFullName(),
 									"UPDATEDATETIME": null,
 									"UPDATEDBY": null,
-									"DELETIONFLAG": ""
+									"DELETIONFLAG": "",
+									"PROVIDER_CATEGORY":that.AddNewProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].getSelectedKey(),
 								};
 
 								// Remove last added item if needed
@@ -322,6 +329,7 @@ sap.ui.define([
 
 												that.AddNewProvider.getContent()[0].getFormContainers()[0].getFormElements()[0].getFields()[0].setValue();
 												that.AddNewProvider.getContent()[0].getFormContainers()[0].getFormElements()[1].getFields()[0].setValue();
+												that.AddNewProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].setSelectedKey(),
 												that.getView().byId("productsTable").getBinding("rows").refresh();
 											}
 										});
@@ -399,8 +407,9 @@ sap.ui.define([
 								"CREATEDBY": that.selectedItem.CREATEDBY,
 								"UPDATEDATETIME": odataDate,
 								"UPDATEDBY": sap.ushell.Container.getService("UserInfo").getFullName(),
-								"DELETIONFLAG": that.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].getState() ?
-									"X" : ""
+								"DELETIONFLAG": that.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[3].getFields()[0].getState() ?
+									"X" : "",
+									"PROVIDER_CATEGORY": that.UpdateProvider.getContent()[0].getFormContainers()[0].getFormElements()[2].getFields()[0].getSelectedKey(),
 							};
 							that.UpdateProvider.close();
 							oModel.update("/SERVICEPROVIDERMASTER(" + that.selectedItem.SERVICEPROVIDER_ID + ")", payload, {

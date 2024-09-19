@@ -22,6 +22,14 @@
 									<Input id="updatevendorid" value="world"/>
 								</f:fields>
 							</f:FormElement>
+							<f:FormElement label="Provider Category">
+								<f:fields>
+									<ComboBox showSecondaryValues="true" items="{ path: 'SproviderModel>/SERVICEPROVIDERCATEGORY'}">
+										<core:ListItem key="{SproviderModel>PROVIDER_CATEGORY}" text="{SproviderModel>PROVIDER_CATEGORY}"
+										/>
+									</ComboBox>
+								</f:fields>
+							</f:FormElement>
 							<f:FormElement label="Deleted">
 								<f:fields>
 									<Switch change = "changeDeleteStateUpdateProvider" state="false" customTextOn="Yes" customTextOff="No">

@@ -22,7 +22,7 @@
 									<TextArea width="100%"/>
 								</f:fields>
 							</f:FormElement>
-							<f:FormElement label="Category ID">
+							<f:FormElement label="Proponent Organization">
 								<f:fields>
 									<ComboBox items="{SproviderModel>/SERVICECATEGORY}">
 										<core:Item key="{SproviderModel>SERVICECATEGORY_ID}" text="{SproviderModel>SERVICECATEGORY_ID} {SproviderModel>SERVICECATEGORY_NAME}"/>

@@ -5,7 +5,13 @@
     align-items: center;
     color: white !important;
 }
-
+.Legendtextsize{
+	font-size: 12px;
+}
+.legend-text {
+    display: flex;
+    justify-content: space-between;
+}
 .createdemail {
     word-break: normal;
     word-wrap: normal;
